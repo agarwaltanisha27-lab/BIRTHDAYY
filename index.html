@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  text-align: center;
+  color: #333;
+}
+
+/* Container */
+.container {
+  padding: 20px;
+}
+
+/* Heading */
+h1 {
+  font-size: 2.2rem;
+  margin-top: 20px;
+}
+
+/* Button */
+.btn {
+  background: #ff4d6d;
+  border: none;
+  padding: 12px 20px;
+  color: white;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Letter */
+.letter {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  background: white;
+  border-radius: 15px;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+/* Music button */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>🎉 Happy Birthday Tanisha 🎂</h1>
+  <p>You deserve all the happiness in the world 💖</p>
+
+  <!-- Buttons -->
+  <button class="btn" onclick="showLetter()">Open Letter 💌</button>
+  <button class="btn" onclick="showGallery()">Memories 📸</button>
+
+  <!-- Letter -->
+  <div class="letter" id="letter">
+    <h2>💖 For You</h2>
+    <p>
+      Dear Tanisha, <br><br>
+
+      I don’t think you realise how special you are.  
+      You have this way of making everything feel lighter, happier, and just better.  
+
+      I’m really grateful for all the memories we’ve shared,  
+      and I hope this year brings you everything you’ve been wishing for ✨  
+
+      Stay exactly the way you are — because that’s already perfect.  
+
+      <br><br>
+      Happy Birthday again ❤️  
+    </p>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery" id="gallery" style="display:none;">
+    <img src="https://via.placeholder.com/300x200?text=Memory+1">
+    <img src="https://via.placeholder.com/300x200?text=Memory+2">
+    <img src="https://via.placeholder.com/300x200?text=Memory+3">
+    <img src="https://via.placeholder.com/300x200?text=Memory+4">
+  </div>
+
+</div>
+
+<!-- Music -->
+<audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+
+<button class="btn music-btn" onclick="toggleMusic()">🎶</button>
+
+<script>
+function showLetter() {
+  document.getElementById("letter").style.display = "block";
+}
+
+function showGallery() {
+  document.getElementById("gallery").style.display = "grid";
+}
+
+// Music toggle
+let isPlaying = false;
+function toggleMusic() {
+  const music = document.getElementById("music");
+  if (isPlaying) {
+    music.pause();
+  } else {
+    music.play();
+  }
+  isPlaying = !isPlaying;
+}
+
+// Simple confetti effect
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.innerHTML = "💖";
+  heart.style.position = "fixed";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.top = "-10px";
+  heart.style.fontSize = "20px";
+  heart.style.animation = "fall 3s linear";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 3000);
+}, 500);
+
+// animation
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}`;
+document.head.appendChild(style);
+</script>
+
+</body>
+</html>
